@@ -32,3 +32,27 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+
+
+# Node.js
+backend/node_modules/
+dashboard/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment files
+.env
+*.env
+
+# IDE settings
+.idea/
+.vscode/
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Build outputs
+backend/dist/
+dashboard/build/
