@@ -1,0 +1,47 @@
+Day 1 – Project Setup,Create GitHub repo + .gitignore (Android + backend),Backlog
+Day 1 – Project Setup,Install Android Studio & VS Code (plugins per setup plan),Backlog
+Day 1 – Project Setup,"Install Docker, GCP CLI, Node.js LTS",Backlog
+Day 1 – Project Setup,"Create GCP Project + enable APIs (Cloud Storage, Firestore, Google OAuth)",Backlog
+Day 1 – Project Setup,Create project folder structure,Backlog
+Day 2 – Backend Scaffold,Generate NestJS backend project,Backlog
+Day 2 – Backend Scaffold,Add docker-compose.yml with backend + MongoDB,Backlog
+Day 2 – Backend Scaffold,Implement /health endpoint,Backlog
+Day 2 – Backend Scaffold,Push initial code to GitHub,Backlog
+Day 3 – GCP Storage,Install @google-cloud/storage,Backlog
+Day 3 – GCP Storage,Configure .env with GCP credentials,Backlog
+Day 3 – GCP Storage,Implement /upload endpoint (file → Cloud Storage),Backlog
+Day 3 – GCP Storage,Test locally with curl,Backlog
+Day 4 – MongoDB,Install mongoose,Backlog
+Day 4 – MongoDB,Create Trip schema,Backlog
+Day 4 – MongoDB,Implement /trip POST endpoint,Backlog
+Day 4 – MongoDB,Test with REST Client / Postman,Backlog
+Day 5 – Google OAuth,Enable Google OAuth in GCP,Backlog
+Day 5 – Google OAuth,Install passport-google-oauth20,Backlog
+Day 5 – Google OAuth,Implement /auth/google endpoint,Backlog
+Day 5 – Google OAuth,Store user profile in DB,Backlog
+Day 5 – Google OAuth,Return JWT to client,Backlog
+Day 6 – Android App Scaffold,Create Android Studio project (android-app),Backlog
+Day 6 – Android App Scaffold,Add Retrofit or OkHttp,Backlog
+Day 6 – Android App Scaffold,Implement Google Sign-In,Backlog
+Day 6 – Android App Scaffold,Test login flow → backend token,Backlog
+Day 7 – Send Telemetry,Simulate trip (hardcoded data),Backlog
+Day 7 – Send Telemetry,POST /trip from app,Backlog
+Day 7 – Send Telemetry,Send file to /upload,Backlog
+Day 7 – Send Telemetry,Verify in MongoDB & Cloud Storage,Backlog
+Day 8 – AAOS App Scaffold,Create automotive-app in Android Studio,Backlog
+Day 8 – AAOS App Scaffold,Set up AAOS emulator,Backlog
+Day 8 – AAOS App Scaffold,Implement login + telemetry send,Backlog
+Day 8 – AAOS App Scaffold,Test with backend,Backlog
+Day 9 – GCP Deployment,Create Docker image for backend,Backlog
+Day 9 – GCP Deployment,Push to Artifact Registry,Backlog
+Day 9 – GCP Deployment,Deploy to Cloud Run,Backlog
+Day 9 – GCP Deployment,Update apps with API URL,Backlog
+Day 10 – Basic UI & README,"Android/AAOS UI: login, start trip, stop trip",Backlog
+Day 10 – Basic UI & README,Add screenshots & diagrams to README,Backlog
+Day 10 – Basic UI & README,Push to GitHub,Backlog
+Day 11 – Polish,Record short screen capture (apps + backend logs),Backlog
+Day 11 – Polish,Add GIF of architecture to README,Backlog
+Day 11 – Polish,Test Cloud Run + DB connectivity,Backlog
+Day 12 – Demo Prep,Finalize README + diagrams,Backlog
+Day 12 – Demo Prep,Final testing of both apps,Backlog
+Day 12 – Demo Prep,Prepare LinkedIn / portfolio post,Backlog
