@@ -1,0 +1,9 @@
+{
+    "tabnine.experimentalAutoImports": true,
+	"git.autofetch": true,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.tabSize": 4,
+	"workbench.editor.languageDetection": false,
+	"extensions.ignoreRecommendations": true
+}

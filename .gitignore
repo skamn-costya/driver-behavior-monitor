@@ -56,3 +56,15 @@ Thumbs.db
 # Build outputs
 backend/dist/
 dashboard/build/
+
+
+
+# VSCode workspace
+.vscode-portable/**
+!.vscode-portable/
+!.vscode-portable/user-data/
+!.vscode-portable/user-data/User/
+.vscode-portable/user-data/User/*
+!.vscode-portable/user-data/User/settings.json
+vscode-extensions
+

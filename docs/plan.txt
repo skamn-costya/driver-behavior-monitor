@@ -1,0 +1,70 @@
+Day 1 – Project Setup
+Create GitHub repo + .gitignore (Android + backend)
+Install Android Studio & VS Code (plugins per setup plan)
+Install Docker, GCP CLI, Node.js LTS
+Create GCP Project + enable APIs (Cloud Storage, Firestore, Google OAuth)
+Create project folder structure
+
+Day 2 – Backend Scaffold
+Generate NestJS backend project
+Add docker-compose.yml with backend + MongoDB
+Implement /health endpoint
+Push initial code to GitHub
+
+Day 3 – GCP Storage
+Install @google-cloud/storage
+Configure .env with GCP credentials
+Implement /upload endpoint (file → Cloud Storage)
+Test locally with curl
+
+Day 4 – MongoDB
+Install mongoose
+Create Trip schema
+Implement /trip POST endpoint
+Test with REST Client / Postman
+
+Day 5 – Google OAuth
+Enable Google OAuth in GCP
+Install passport-google-oauth20
+Implement /auth/google endpoint
+Store user profile in DB
+Return JWT to client
+
+Day 6 – Android App Scaffold
+Create Android Studio project (android-app)
+Add Retrofit or OkHttp
+Implement Google Sign-In
+Test login flow → backend token
+
+Day 7 – Send Telemetry
+Simulate trip (hardcoded data)
+POST /trip from app
+Send file to /upload
+Verify in MongoDB & Cloud Storage
+
+Day 8 – AAOS App Scaffold
+Create automotive-app in Android Studio
+Set up AAOS emulator
+Implement login + telemetry send
+Test with backend
+
+Day 9 – GCP Deployment
+Create Docker image for backend
+Push to Artifact Registry
+Deploy to Cloud Run
+Update apps with API URL
+
+Day 10 – Basic UI & README
+Android/AAOS UI: login, start trip, stop trip
+Add screenshots & diagrams to README
+Push to GitHub
+
+Day 11 – Polish
+Record short screen capture (apps + backend logs)
+Add GIF of architecture to README
+Test Cloud Run + DB connectivity
+
+Day 12 – Demo Prep
+Finalize README + diagrams
+Final testing of both apps
+Prepare LinkedIn / portfolio post
