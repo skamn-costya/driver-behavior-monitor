@@ -68,3 +68,5 @@ dashboard/build/
 !.vscode-portable/user-data/User/settings.json
 vscode-extensions
 
+# Mongo DB
+backend/data/mongo

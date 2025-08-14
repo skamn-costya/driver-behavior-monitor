@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  node:
+    build: ./node
+    container_name: dbm-node
+    env_file:
+      - ./node/.env
+    networks:
+      - front-tier
+      - back-tier
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    depends_on:
+      - mongo
+
+  mongo:
+    build: ./mongo
+    container_name: dbm-mongo
+    networks:
+      - back-tier
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/${USER}/GitHub/DBM/backend/data/mongo
+
+networks:
+  front-tier: {}
+  back-tier: {internal: true}
