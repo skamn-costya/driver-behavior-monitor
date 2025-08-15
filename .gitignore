@@ -16,12 +16,12 @@ captures/
 *.apk
 output-metadata.json
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+## IntelliJ
+#*.iml
+#.idea/
+#misc.xml
+#deploymentTargetDropDown.xml
+#render.experimental.xml
 
 # Keystore files
 *.jks
@@ -67,6 +67,9 @@ dashboard/build/
 .vscode-portable/user-data/User/*
 !.vscode-portable/user-data/User/settings.json
 vscode-extensions
+
+# Android Studio
+.android-studio-portable
 
 # Mongo DB
 backend/data/mongo
