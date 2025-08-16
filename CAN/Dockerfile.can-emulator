@@ -1,0 +1,26 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Установка зависимостей
+RUN pip install python-can numpy
+
+# Копируем скрипт эмулятора
+COPY can_emulator.py .
+
+CMD ["python", "can_emulator.py"]
+
+
+
+# RUN apt-get update && apt-get install -y \
+#     android-tools-adb \
+#     bash \
+#     bc \
+#     && rm -rf /var/lib/apt/lists/*
+
+# WORKDIR /app
+
+# COPY simulate_realistic_can_data.sh /app/simulate_realistic_can_data.sh
+# RUN chmod +x /app/simulate_realistic_can_data.sh
+
+# CMD ["/app/simulate_realistic_can_data.sh"]
