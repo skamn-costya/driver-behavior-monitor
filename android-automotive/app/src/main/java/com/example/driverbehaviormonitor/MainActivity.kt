@@ -19,8 +19,8 @@ class MainActivity : ComponentActivity() {
                 while (true) {
                     tick++
                     state = state.copy(
-                        speed = (state.speed + Random.nextInt(-5, 10)).coerceIn(0, 240),
-                        rpm = (state.rpm + Random.nextInt(-200, 400)).coerceIn(600, 7000),
+                        speed = (state.speed + Random.nextInt(-5, 7)).coerceIn(0, 240),
+                        rpm = (state.rpm + Random.nextInt(-200, 300)).coerceIn(0, 10000),
                         fuelLevel = (state.fuelLevel - 0.01f).toInt().coerceAtLeast(0),
                         engineTemp = (90 + Random.nextInt(-2, 3)),
                         odometer = state.odometer + Random.nextInt(0, 2),
@@ -29,12 +29,11 @@ class MainActivity : ComponentActivity() {
                         leftBlinkerOn = (tick % 2 == 0),
                         rightBlinkerOn = (tick % 3 == 0)
                     )
-                    delay(700) // теперь это внутри корутины
+                    delay(700)
                 }
             }
 
             RootScreen(state)
         }
-
     }
 }

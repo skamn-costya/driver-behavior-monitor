@@ -25,8 +25,8 @@ fun DashboardScreen(state: VehicleState) {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            GaugeNeedle(state.rpm.toFloat(), 7000f, "RPM", Color.Red)
-            GaugeNeedle(state.speed.toFloat(), 240f, "km/h", Color.Green)
+            GaugeNeedle(state.speed.toFloat(), 240f, Color.Green, R.drawable.speed01)
+            GaugeNeedle(state.rpm.toFloat(), 10000f, Color.Red, R.drawable.tach01)
         }
 
         Row(
