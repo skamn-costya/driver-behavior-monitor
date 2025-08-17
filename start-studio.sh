@@ -37,7 +37,7 @@ BASE="$PWD/.android-studio-portable"
 # done
 
 # Запускаем Android Studio с портативными настройками
-"$AS_BIN" # "$PWD/android"
+"$AS_BIN" "$PWD/android-automotive"
 #   --user-data-dir "$BASE"/.user \
 #   --system "$BASE/.system" \
 #   --plugins "$PLUGINS_DIR" \

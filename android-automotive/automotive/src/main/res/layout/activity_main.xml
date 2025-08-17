@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txtSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Speed:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtRpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RPM:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtFuel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fuel:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtGear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gear:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtParking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parking:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtIgnition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ignition:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Engine Temp:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtTempInside"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inside Temp:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtTempOutside"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Outside Temp:"
+            android:textSize="20sp" />
+    </LinearLayout>
+</ScrollView>
