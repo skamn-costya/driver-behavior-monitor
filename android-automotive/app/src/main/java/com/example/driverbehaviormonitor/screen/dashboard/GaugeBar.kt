@@ -1,4 +1,4 @@
-package com.example.driverbehaviormonitor
+package com.example.driverbehaviormonitor.screen.dashboard
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape

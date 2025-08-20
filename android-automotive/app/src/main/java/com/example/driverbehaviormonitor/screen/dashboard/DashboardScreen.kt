@@ -1,4 +1,4 @@
-package com.example.driverbehaviormonitor
+package com.example.driverbehaviormonitor.screen.dashboard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.driverbehaviormonitor.R
+import com.example.driverbehaviormonitor.VehicleState
 
 @Composable
 fun DashboardScreen(state: VehicleState) {
@@ -25,8 +27,10 @@ fun DashboardScreen(state: VehicleState) {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            GaugeNeedle(state.speed.toFloat(), 240f, Color.Green, R.drawable.speed01)
-            GaugeNeedle(state.rpm.toFloat(), 10000f, Color.Red, R.drawable.tach01)
+            val speed = GaugeNeedleOpt(R.drawable.speed_200,  -225.5f, 270.5f, 200f, Color.Green)
+            GaugeNeedle(state.speed, speed)
+            val tach = GaugeNeedleOpt(R.drawable.tach01,  -213f, 246f, 10000f, Color.Red)
+            GaugeNeedle(state.rpm, tach)
         }
 
         Row(
@@ -51,7 +55,11 @@ fun DashboardScreen(state: VehicleState) {
     }
 }
 
-@Preview
+@Preview(
+    showBackground = true,
+    device = "spec:width=1408dp,height=792dp,dpi=160",
+    name = "AAOS 1024x768 Preview"
+)
 @Composable
 fun PreviewDashboardScreen() {
     val mockState = VehicleState(

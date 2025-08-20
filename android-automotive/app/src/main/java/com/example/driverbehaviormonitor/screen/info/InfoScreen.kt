@@ -1,4 +1,4 @@
-package com.example.driverbehaviormonitor
+package com.example.driverbehaviormonitor.screen.info
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -9,9 +9,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.driverbehaviormonitor.VehicleState
 
 @Composable
 fun InfoScreen(state: VehicleState) {
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -30,7 +32,11 @@ fun InfoScreen(state: VehicleState) {
     }
 }
 
-@Preview
+@Preview(
+    showBackground = true,
+    device = "spec:width=1408dp,height=792dp,dpi=160",
+    name = "AAOS 1024x768 Preview"
+)
 @Composable
 fun PreviewInfoScreen() {
     val mockState = VehicleState(

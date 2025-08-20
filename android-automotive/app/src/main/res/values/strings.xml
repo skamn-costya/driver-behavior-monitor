@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Driver Behavior Monitor</string>
+    <string name="compose_version">1.5.4</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.driverbehaviormonitor
+package com.example.driverbehaviormonitor.screen.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -12,36 +12,56 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
+import androidx.compose.material3.Text
+import androidx.compose.ui.geometry.Offset
 import kotlin.math.cos
 import kotlin.math.sin
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
+
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import com.example.driverbehaviormonitor.R
+
+val cflcdFontFamily = FontFamily(
+    Font(R.font.lcd, FontWeight.Normal)
+)
 
 @Composable
-fun GaugeNeedle(value: Float, maxValue: Float, color: Color, d_id: Int) {
-    val angle = (value / maxValue) * 249f - 214f
+fun GaugeNeedle(value: Int, opt: GaugeNeedleOpt) {
+    val angle = (value / opt.maxVal) * opt.maxAngle + opt.minAngle
     val animatedAngle = animateFloatAsState(targetValue = angle, animationSpec = tween(500))
 
-    // Используем Box для наложения слоев
     Box(contentAlignment = Alignment.Center, modifier = Modifier.size(300.dp)) {
 
-        // Слой 1: Фоновая подложка. Помещаем ее первой, чтобы она была внизу.
-        // Замените R.drawable.dashboard_bg на имя вашего файла
         Image(
-            painter = painterResource(id = d_id),
+            painter = painterResource(id = opt.background),
             contentDescription = "Gauge Background",
             modifier = Modifier.fillMaxSize()
         )
 
-        // Слой 2: Стрелка, нарисованная на Canvas
         Canvas(modifier = Modifier.fillMaxSize()) {
             val center = this.center
             val radius = size.minDimension / 2.5f
             val rad = Math.toRadians(animatedAngle.value.toDouble())
-            val end = androidx.compose.ui.geometry.Offset(
+            val end = Offset(
                 x = center.x + radius * cos(rad).toFloat(),
                 y = center.y + radius * sin(rad).toFloat()
             )
-            drawLine(color, start = center, end = end, strokeWidth = 8f, cap = StrokeCap.Round)
+            drawLine(opt.color, start = center, end = end, strokeWidth = 8f, cap = StrokeCap.Round)
+        }
+
+        Box(
+            contentAlignment = Alignment.BottomCenter,
+            modifier = Modifier.size(150.dp)
+        ) {
+            Text(
+                text = value.toString(),
+                fontFamily = cflcdFontFamily,
+                fontSize = 28.sp,
+                color = Color.Cyan,
+            )
         }
     }
 }
@@ -49,5 +69,7 @@ fun GaugeNeedle(value: Float, maxValue: Float, color: Color, d_id: Int) {
 @Preview
 @Composable
 fun PreviewGaugeNeedle() {
-    GaugeNeedle(110f, 240f, Color.Red, R.drawable.speed01);
+//    val speed = GaugeNeedleOpt(R.drawable.speed_200,  -225.5f, 270.5f, 200f, Color.Green)
+    val speed = GaugeNeedleOpt(R.drawable.tach01,  -213f, 246f, 10f, Color.Green)
+    GaugeNeedle(100, speed);
 }

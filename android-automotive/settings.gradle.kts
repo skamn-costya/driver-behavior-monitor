@@ -10,6 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://artifactory.skoda.vwgroup.com/artifactory/gra-maul-gradle-public/")
     }
 }
 rootProject.name = "DriverBehaviorMonitor"
