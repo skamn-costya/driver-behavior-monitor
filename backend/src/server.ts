@@ -4,8 +4,16 @@ import { google } from "googleapis";
 
 import * as fs from "fs";
 import https from "https";
+import { check, env_data } from "./env_";
+import { exit } from "process";
 
 dotenv.config();
+
+if (check() == false) {
+	console.error(`Check .env file.`);
+	exit(1);
+}
+
 const appDir: string = fs.realpathSync(process.cwd());
 
 console.log(`SSL path is ${appDir}${process.env.SSL_PATH}`);
@@ -36,7 +44,11 @@ app.get("/auth/qr", (req, res) => {
 		scope: ["profile", "email"],
 		prompt: "consent",
 	});
-	res.json({ qrUrl: url }); // возвращаем строку
+	res.json({ qrUrl: url });
+});
+
+app.get("/", (req, res) => {
+	res.json({ Hello: "world" }); // возвращаем строку
 });
 
 https.createServer({ key, cert }, app).listen(PORT);
