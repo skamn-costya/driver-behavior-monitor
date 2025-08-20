@@ -8,7 +8,7 @@ object ApiClient {
     private const val BASE_URL = "https://aaos.sorokolit.net/"
 
     val authApi: AuthApi by lazy {
-        Log.d("ApiClient", "Creating AuthApi")
+        Log.d("DBM", "Creating AuthApi")
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

@@ -3,6 +3,7 @@ package com.example.driverbehaviormonitor.screen.login
 import androidx.compose.ui.platform.LocalContext
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -31,27 +32,55 @@ fun LoginScreen(viewModel: LoginViewModel = LoginViewModel()) {
         viewModel.loadQr()
     }
 
-    Box(
-        contentAlignment = Alignment.Center,
+    Column(
         modifier = Modifier
             .background(androidx.compose.ui.graphics.Color.Black)
             .fillMaxSize()
     ) {
         when (val state = qrState) {
             is LoginViewModel.QrState.Loading -> {
-                CircularProgressIndicator(color = androidx.compose.ui.graphics.Color.White)
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    modifier = Modifier
+                        .fillMaxSize()){
+                    CircularProgressIndicator(color = androidx.compose.ui.graphics.Color.White)
+                }
             }
 
             is LoginViewModel.QrState.Success -> {
-                QRCodeImage(content = state.qrData)
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()){
+                    QRCodeImage(content = state.qrData)
+                }
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()){
+                    Text(
+                        text = state.userCode,
+                        color = androidx.compose.ui.graphics.Color.Blue,
+                        fontSize = 80.sp
+                    )
+                }
             }
 
             is LoginViewModel.QrState.Error -> {
-                Text(
-                    text = "Error: ${state.message}",
-                    color = androidx.compose.ui.graphics.Color.Red,
-                    fontSize = 16.sp
-                )
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    modifier = Modifier
+                        .fillMaxSize()){
+                    Text(
+                        text = "Error: ${state.message}",
+                        color = androidx.compose.ui.graphics.Color.Red,
+                        fontSize = 16.sp
+                    )
+                }
                 Toast.makeText(context, "QR code error: ${state.message}", Toast.LENGTH_SHORT).show()
             }
 
@@ -68,7 +97,7 @@ fun QRCodeImage(content: String) {
         Bitmap.createBitmap(size, size, Bitmap.Config.RGB_565).apply {
             for (x in 0 until size) {
                 for (y in 0 until size) {
-                    setPixel(x, y, if (bits[x, y]) Color.BLACK else Color.WHITE)
+                    setPixel(x, y, if (bits[x, y]) Color.BLACK else Color.GRAY)
                 }
             }
         }

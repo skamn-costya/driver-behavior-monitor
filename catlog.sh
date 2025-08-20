@@ -1,3 +1,3 @@
 #!/bin/bash
 
-adb logcat | grep LoginVM
+adb logcat | grep DBM

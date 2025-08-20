@@ -1,5 +1,6 @@
 package com.example.driverbehaviormonitor.auth
 
 data class QrResponse(
-    val qrData: String
+    val userCode: String,
+    val qrData: String,
 )
