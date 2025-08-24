@@ -47,7 +47,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
 
-
+    implementation(libs.squareup.okhttp3.okhttp)
+    implementation(libs.jetbrains.kotlinx.kotlinx.coroutines.android)
 
     // retrofit
     implementation(libs.com.squareup.retrofit2.retrofit)

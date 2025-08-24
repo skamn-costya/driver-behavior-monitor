@@ -1,34 +1,39 @@
 FROM ubuntu:22.04
 
-# Установка зависимостей
+ENV DEBIAN_FRONTEND=noninteractive
+
+# # Установка зависимостей
 RUN apt-get update && apt-get install -y \
     wget unzip curl git qemu-kvm libvirt-daemon-system libvirt-clients \
     libgl1-mesa-dev xvfb x11vnc novnc websockify socat \
-    openjdk-11-jdk
+    openjdk-21-jdk unzip mc \
+	&& apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Android SDK
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
-RUN mkdir -p $ANDROID_SDK_ROOT
-WORKDIR $ANDROID_SDK_ROOT
+ENV PATH=$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH
+COPY cmdline-tools.zip /tmp/
+COPY sdk.sh /tmp/
 
-RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdline-tools.zip \
-    && unzip cmdline-tools.zip -d cmdline-tools \
-    && rm cmdline-tools.zip
+WORKDIR /tmp
+RUN /tmp/sdk.sh
 
-ENV PATH=$ANDROID_SDK_ROOT/cmdline-tools/cmdline-tools/bin:$PATH
-
-RUN yes | sdkmanager --licenses
-RUN sdkmanager "platform-tools" "emulator" "system-images;android-33;google_apis;x86_64"
-
-# Создаем виртуальное устройство
-RUN echo "no" | avdmanager create avd -n aaos -k "system-images;android-33;google_apis;x86_64" --force
+WORKDIR /opt/android-sdk
 
 # Порт для VNC
 EXPOSE 5900
 EXPOSE 6080
 
+# RUN echo "Europe/Prague" "no" | ./cmdline-tools/bin/avdmanager create avd \
+RUN avdmanager create avd \
+    -n aaos_emulator \
+    -k "system-images;android-33;android-automotive;x86_64" \
+    --device "automotive_1024p_landscape"
+
 # Запуск эмулятора и VNC через Xvfb
-CMD Xvfb :1 -screen 0 1080x1920x24 & \
+CMD ["/bin/bash", "-c", "Xvfb :1 -screen 0 1080x1920x24 & \
     x11vnc -display :1 -forever -nopw & \
     websockify -D --web=/usr/share/novnc/ 6080 localhost:5900 & \
-    emulator -avd aaos -noaudio -no-boot-anim -gpu swiftshader_indirect -no-window -verbose
+    emulator -avd aaos_emulator -partition-size 2048 -wipe-data -noaudio -no-boot-anim -gpu swiftshader_indirect -no-window -verbose"]
+
+# CMD ["/bin/bash"]

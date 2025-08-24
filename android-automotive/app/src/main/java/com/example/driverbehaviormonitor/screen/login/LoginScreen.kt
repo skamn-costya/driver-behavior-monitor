@@ -54,6 +54,18 @@ fun LoginScreen(viewModel: LoginViewModel = LoginViewModel()) {
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxWidth()){
+                    Text(
+                        text = state.verification_url,
+                        color = androidx.compose.ui.graphics.Color.Blue,
+                        fontSize = 60.sp
+                    )
+                }
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()){
                     QRCodeImage(content = state.qrData)
                 }
                 Row(

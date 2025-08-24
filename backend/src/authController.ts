@@ -33,7 +33,8 @@ export async function getQr(req: Request, res: Response) {
 
 		// Отдаём AAOS клиенту строку для QR
 		res.json({
-			sessionId,
+			session_id: sessionId,
+			verification_url: `${data.verification_url}`,
 			qrData: `${data.verification_url}?user_code=${data.user_code}`,
 			userCode: `${data.user_code}`,
 		})

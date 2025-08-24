@@ -1,0 +1,1 @@
+openjdk-11-jdk qemu-kvm libvirt-daemon-system libvirt-clients xvfb x11vnc novnc websockify socat unzip

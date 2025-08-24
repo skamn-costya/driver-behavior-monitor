@@ -11,7 +11,10 @@ class LoginViewModel : ViewModel() {
 
     sealed class QrState {
         object Loading : QrState()
-        data class Success(val qrData: String, val userCode: String) : QrState()
+        data class Success(val session_id: String,
+                           val verification_url: String,
+                           val qrData: String,
+                           val userCode: String) : QrState()
         data class Error(val message: String? = null) : QrState()
     }
 
@@ -25,7 +28,7 @@ class LoginViewModel : ViewModel() {
             try {
                 val response = ApiClient.authApi.getQr()
                 Log.d("DBM", "Loading QR ".toString().plus(response))
-                _qrCodeState.postValue(QrState.Success(response.qrData, response.userCode))
+                _qrCodeState.postValue(QrState.Success(response.session_id, response.verification_url, response.qrData, response.userCode))
             } catch (e: Exception) {
                 Log.e("DBM", "Error loading QR", e)
                 _qrCodeState.postValue(QrState.Error(e.localizedMessage))
