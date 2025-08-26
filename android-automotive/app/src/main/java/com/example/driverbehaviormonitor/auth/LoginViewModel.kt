@@ -1,13 +1,18 @@
 package com.example.driverbehaviormonitor.auth
 
 import android.R
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import com.example.driverbehaviormonitor.backend.ApiClient
 import kotlinx.coroutines.CoroutineExceptionHandler
+//import androidx.lifecycle.ViewModel
+//import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
+    private val repo = AuthRepository(baseUrl = "https://aaos.sorokolit.net")
 
     sealed class QrState {
         object Loading : QrState()
@@ -16,6 +21,17 @@ class LoginViewModel : ViewModel() {
                            val qrData: String,
                            val userCode: String) : QrState()
         data class Error(val message: String? = null) : QrState()
+    }
+
+    fun pollAuth(session_id: String) {
+        viewModelScope.launch {
+            val ok = repo.waitForAuthorization(session_id)
+            if (ok) {
+                Log.d("DBM", "OK")
+            } else {
+                Log.d("DBM", "not OK")
+            }
+        }
     }
 
     private val _qrCodeState = MutableLiveData<QrState>()

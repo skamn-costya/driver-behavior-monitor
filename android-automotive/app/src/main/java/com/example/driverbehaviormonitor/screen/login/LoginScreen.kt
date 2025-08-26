@@ -23,6 +23,7 @@ import com.google.zxing.qrcode.QRCodeWriter
 import com.example.driverbehaviormonitor.auth.*
 import com.example.driverbehaviormonitor.screen.dashboard.cflcdFontFamily
 
+
 @Composable
 fun LoginScreen(viewModel: LoginViewModel = LoginViewModel()) {
     val context = LocalContext.current
@@ -80,6 +81,7 @@ fun LoginScreen(viewModel: LoginViewModel = LoginViewModel()) {
                         fontSize = 80.sp
                     )
                 }
+                viewModel.pollAuth(state.session_id);
             }
 
             is LoginViewModel.QrState.Error -> {

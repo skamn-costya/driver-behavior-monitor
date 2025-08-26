@@ -1,9 +1,12 @@
 package com.example.driverbehaviormonitor
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
 import com.example.driverbehaviormonitor.screen.RootScreen
 import kotlinx.coroutines.delay
 import kotlin.random.Random
@@ -13,6 +16,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             var state by remember { mutableStateOf(VehicleState()) }
+
+//            SessionManager.init(this)
+//            SessionManager.deleteTokens()
+            SessionManager.init(this)
 
             // корутина, которая эмулирует данные
             LaunchedEffect(Unit) {

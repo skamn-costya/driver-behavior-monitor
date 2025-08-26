@@ -16,8 +16,10 @@ import androidx.compose.ui.unit.dp
 import com.example.driverbehaviormonitor.screen.dashboard.DashboardScreen
 import com.example.driverbehaviormonitor.screen.info.InfoScreen
 import com.example.driverbehaviormonitor.screen.login.LoginScreen
+import com.example.driverbehaviormonitor.screen.user.UserScreen
 import com.example.driverbehaviormonitor.VehicleState
 import com.example.driverbehaviormonitor.R
+import com.example.driverbehaviormonitor.SessionManager
 
 @Composable
 fun RootScreen(state: VehicleState) {
@@ -31,15 +33,30 @@ fun RootScreen(state: VehicleState) {
             .padding(16.dp),horizontalArrangement = Arrangement.SpaceEvenly) {
             Button(onClick = { currentScreen = "dashboard" }) { Text("Dashboard") }
             Button(onClick = { currentScreen = "info" }) { Text("Info") }
-            IconButton(onClick = { currentScreen = "login" },
-                modifier = Modifier.sizeIn(minWidth = 250.dp, minHeight = 40.dp),
-                content = { Image(painter = painterResource(id = R.drawable.web_neutral_rd_si),
-                    contentDescription = null)})
+
+            if (!SessionManager.isSet) {
+                IconButton(
+                    onClick = { currentScreen = "login" },
+                    modifier = Modifier.sizeIn(minWidth = 250.dp, minHeight = 40.dp),
+                    content = {
+                        Image(
+                            painter = painterResource(id = R.drawable.web_neutral_rd_si),
+                            contentDescription = null
+                        )
+                    })
+                if ( currentScreen == "user" )
+                    currentScreen = "login"
+            } else {
+                Button(onClick = { currentScreen = "user" }) { Text("User") }
+                if ( currentScreen == "login" )
+                    currentScreen = "user"
+            }
         }
         when (currentScreen) {
             "dashboard" -> DashboardScreen(state)
             "info" -> InfoScreen(state)
             "login" -> LoginScreen()
+            "user" -> UserScreen()
         }
     }
 }
