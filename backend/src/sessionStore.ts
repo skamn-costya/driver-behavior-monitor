@@ -19,5 +19,6 @@ export function updateSession(sessionId: string, update: Partial<Session>) {
 }
 
 export function getSession(sessionId: string) {
+	console.debug("getSession", sessions[sessionId])
 	return sessions[sessionId]
 }

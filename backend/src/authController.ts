@@ -21,7 +21,7 @@ export async function getQr(req: Request, res: Response) {
 
 		const data: any = await response.json()
 
-		console.debug("getQr return data -> ", data)
+		console.debug(Date.now(), "getQr return data -> ", data)
 
 		const sessionId = uuidv4()
 		createSession(sessionId, {
@@ -68,7 +68,6 @@ async function startPolling(sessionId: string, deviceCode: string, interval: num
 				}),
 			})
 			const data: any = await resp.json()
-			console.debug("QR Polling got", data)
 
 			if (data.error === "authorization_pending") {
 				setTimeout(poll, interval * 1000)
@@ -76,6 +75,7 @@ async function startPolling(sessionId: string, deviceCode: string, interval: num
 				updateSession(sessionId, { status: "error" })
 			} else {
 				updateSession(sessionId, { status: "approved", tokens: data })
+				console.debug(Date.now(), "QR Polling (approved): ", data)
 			}
 		} catch (e) {
 			console.error("Polling error", e)
@@ -89,8 +89,10 @@ async function startPolling(sessionId: string, deviceCode: string, interval: num
 export function getStatus(req: Request, res: Response) {
 	const { sessionId } = req.params
 	const session = getSession(sessionId)
+	console.debug("call getSession(", sessionId, ")")
 	if (!session) {
 		return res.status(404).json({ error: "Session not found" })
 	}
+	console.debug("res.json(session)")
 	res.json(session)
 }
