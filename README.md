@@ -22,11 +22,11 @@ The app demonstrates **Google OAuth2 login**, token management, and displays use
 
 | Driving Stats                   |
 | ------------------------------- |
-| <img width="421" height="237" alt="Screenshot from 2025-08-26 12-12-26" src="https://github.com/user-attachments/assets/806ea2fa-272b-4b9f-a1d9-4e3690623478" /> |
+|  <img width="1262" height="712" alt="Screenshot from 2025-08-26 12-12-26" src="https://github.com/user-attachments/assets/806ea2fa-272b-4b9f-a1d9-4e3690623478" /> |
 
 | Driving Stats (text)            |
 | ------------------------------- |
-| <img width="421" height="237" alt="Screenshot from 2025-08-26 12-11-16" src="https://github.com/user-attachments/assets/90d8c4ac-955b-4ea0-946e-cbb9015366f9" /> |
+|  <img width="1262" height="712" alt="Screenshot from 2025-08-26 12-11-16" src="https://github.com/user-attachments/assets/90d8c4ac-955b-4ea0-946e-cbb9015366f9" /> |
 
 | Verification Code               | 
 | ------------------------------- |
@@ -34,7 +34,7 @@ The app demonstrates **Google OAuth2 login**, token management, and displays use
 
 | User Profile                    |
 | ------------------------------- |
-| <img width="421" height="237" alt="Screenshot from 2025-08-26 12-12-17" src="https://github.com/user-attachments/assets/21722e09-de38-4cab-ad60-000948aaab98" /> |
+|  <img width="1262" height="712" alt="Screenshot from 2025-08-26 12-12-17" src="https://github.com/user-attachments/assets/21722e09-de38-4cab-ad60-000948aaab98" /> |
 
 ---
 
