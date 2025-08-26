@@ -30,15 +30,11 @@ The app demonstrates **Google OAuth2 login**, token management, and displays use
 
 | Verification Code               | 
 | ------------------------------- |
-| <img width="421" height="237" alt="Screenshot from 2025-08-26 12-11-21" src="https://github.com/user-attachments/assets/59707f8f-d89d-43c3-90b7-0930b5792282" /> |
+|  <img width="1262" height="712" alt="Screenshot from 2025-08-26 12-11-21" src="https://github.com/user-attachments/assets/81f7000d-27fb-4b0a-8bdf-22398035e413" /> |
 
 | User Profile                    |
 | ------------------------------- |
 | <img width="421" height="237" alt="Screenshot from 2025-08-26 12-12-17" src="https://github.com/user-attachments/assets/21722e09-de38-4cab-ad60-000948aaab98" /> |
-
-| Video                           |
-| ------------------------------- |
-| https://github.com/user-attachments/assets/f983c766-6ff1-441d-9c73-206078e09777 |
 
 ---
 
