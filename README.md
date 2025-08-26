@@ -1,5 +1,8 @@
 # 🚘 Driver Behavior Monitor (AAOS)
 
+<img width="256" height="256" alt="ic_launcher-playstore" src="https://github.com/user-attachments/assets/41891622-1c91-49d1-8e58-20873261e5af" />
+
+
 Driver Behavior Monitor is an **Android Automotive OS (AAOS) app** that provides monitoring features for in-car systems, and authentication, user profile integration.
 The app demonstrates **Google OAuth2 login**, token management, and displays user profile data such as name and avatar inside an AAOS environment.
 
@@ -17,13 +20,25 @@ The app demonstrates **Google OAuth2 login**, token management, and displays use
 
 ## 📱 Screenshots
 
-| Login Screen                    | Verification Code                             | User Profile                        |
-| ------------------------------- | --------------------------------------------- | ----------------------------------- |
-| ![Login](screenshots/login.png) | ![Verification](screenshots/verification.png) | ![Profile](screenshots/profile.png) |
+| Driving Stats                   |
+| ------------------------------- |
+| <img width="421" height="237" alt="Screenshot from 2025-08-26 12-12-26" src="https://github.com/user-attachments/assets/806ea2fa-272b-4b9f-a1d9-4e3690623478" /> |
 
-| Settings                              | Driving Stats                   | Logout                            |
-| ------------------------------------- | ------------------------------- | --------------------------------- |
-| ![Settings](screenshots/settings.png) | ![Stats](screenshots/stats.png) | ![Logout](screenshots/logout.png) |
+| Driving Stats (text)            |
+| ------------------------------- |
+| <img width="421" height="237" alt="Screenshot from 2025-08-26 12-11-16" src="https://github.com/user-attachments/assets/90d8c4ac-955b-4ea0-946e-cbb9015366f9" /> |
+
+| Verification Code               | 
+| ------------------------------- |
+| <img width="421" height="237" alt="Screenshot from 2025-08-26 12-11-21" src="https://github.com/user-attachments/assets/59707f8f-d89d-43c3-90b7-0930b5792282" /> |
+
+| User Profile                    |
+| ------------------------------- |
+| <img width="421" height="237" alt="Screenshot from 2025-08-26 12-12-17" src="https://github.com/user-attachments/assets/21722e09-de38-4cab-ad60-000948aaab98" /> |
+
+| Video                           |
+| ------------------------------- |
+| https://github.com/user-attachments/assets/f983c766-6ff1-441d-9c73-206078e09777 |
 
 ---
 
@@ -32,5 +47,5 @@ The app demonstrates **Google OAuth2 login**, token management, and displays use
 - **Android Automotive OS (AAOS)**
 - **Kotlin + Jetpack Compose**
 - **ViewModel + Coroutines + Flow**
-- **OkHttp + Gson** for networking & parsing
-- **Coil** for image loading
+- **OkHttp + Gson**
+- **Coil**
